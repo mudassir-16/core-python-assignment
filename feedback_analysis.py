@@ -4,5 +4,6 @@ def positive_feedback_percentage(ratings):
     return (sum(1 for r in ratings if r >= 4) / len(ratings)) * 100
 
 
-ratings = list(map(int, input("Enter ratings separated by space: ").split()))
+ratings = [5, 4, 3, 5, 2, 4, 1, 5]
+
 print(f"Positive Feedback: {positive_feedback_percentage(ratings)}%")
