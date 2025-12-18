@@ -9,17 +9,15 @@ def remove_item(menu, item):
 
 
 def check_item(menu, item):
-    return f"{item} is available" if item in menu else f"{item} is not available"
+    if item in menu:
+        return f"{item} is available"
+    return f"{item} is not available"
 
 
-menu = input("Enter initial menu items separated by comma: ").split(",")
+menu = ["Pizza", "Burger", "Pasta", "Salad"]
 
-add_item_name = input("Enter item to add: ")
-remove_item_name = input("Enter item to remove: ")
-check_item_name = input("Enter item to check: ")
-
-add_item(menu, add_item_name)
-remove_item(menu, remove_item_name)
+add_item(menu, "Tacos")
+remove_item(menu, "Salad")
 
 print("Updated menu:", menu)
-print("Availability:", check_item(menu, check_item_name))
+print("Availability:", check_item(menu, "Pizza"))
