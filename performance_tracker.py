@@ -2,24 +2,29 @@ def calculate_average(marks):
     return sum(marks) / len(marks)
 
 
-students = {}
-n = int(input("Enter number of students: "))
+def student_performance(students):
+    averages = {}
+    top_student = ""
+    highest_avg = 0
 
-for _ in range(n):
-    name = input("Enter student name: ")
-    marks = list(map(int, input("Enter marks separated by space: ").split()))
-    students[name] = marks
+    for name, marks in students.items():
+        avg = calculate_average(marks)
+        averages[name] = round(avg, 2)
 
-averages = {}
-topper = ""
-highest = 0
+        if avg > highest_avg:
+            highest_avg = avg
+            top_student = name
 
-for name, marks in students.items():
-    avg = calculate_average(marks)
-    averages[name] = round(avg, 2)
-    if avg > highest:
-        highest = avg
-        topper = name
+    return averages, top_student
+
+
+students = {
+    "John": [85, 78, 92],
+    "Alice": [88, 79, 95],
+    "Bob": [70, 75, 80]
+}
+
+averages, topper = student_performance(students)
 
 print("Average Marks:", averages)
 print("Top Performer:", topper)
