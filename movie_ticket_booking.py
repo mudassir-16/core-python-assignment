@@ -1,24 +1,21 @@
-def book_seat(booked, seat, total):
-    if 1 <= seat <= total and seat not in booked:
-        booked.append(seat)
+def book_seat(booked_seats, seat_number, total_seats):
+    if 1 <= seat_number <= total_seats and seat_number not in booked_seats:
+        booked_seats.append(seat_number)
 
 
-def cancel_seat(booked, seat):
-    if seat in booked:
-        booked.remove(seat)
+def cancel_seat(booked_seats, seat_number):
+    if seat_number in booked_seats:
+        booked_seats.remove(seat_number)
 
 
-def available_seats(total, booked):
-    return [i for i in range(1, total + 1) if i not in booked]
+def available_seats(total_seats, booked_seats):
+    return [i for i in range(1, total_seats + 1) if i not in booked_seats]
 
 
-total_seats = int(input("Enter total seats: "))
-booked_seats = list(map(int, input("Enter booked seats separated by space: ").split()))
+total_seats = 10
+booked_seats = [2, 5, 7]
 
-book = int(input("Enter seat to book: "))
-cancel = int(input("Enter seat to cancel: "))
-
-book_seat(booked_seats, book, total_seats)
-cancel_seat(booked_seats, cancel)
+book_seat(booked_seats, 3, total_seats)
+cancel_seat(booked_seats, 5)
 
 print("Available seats:", available_seats(total_seats, booked_seats))
