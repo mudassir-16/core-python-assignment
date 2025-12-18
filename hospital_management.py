@@ -1,13 +1,11 @@
-patients = []
-n = int(input("Enter number of patients: "))
+def search_by_disease(patients, disease):
+    return [p["Name"] for p in patients if p["Disease"] == disease]
 
-for _ in range(n):
-    name = input("Enter name: ")
-    age = int(input("Enter age: "))
-    disease = input("Enter disease: ")
-    patients.append({"Name": name, "Age": age, "Disease": disease})
 
-search = input("Enter disease to search: ")
+patients = [
+    {"Name": "Alice", "Age": 30, "Disease": "Flu"},
+    {"Name": "Bob", "Age": 45, "Disease": "Diabetes"},
+    {"Name": "Charlie", "Age": 35, "Disease": "Flu"}
+]
 
-result = [p["Name"] for p in patients if p["Disease"] == search]
-print(f"Patients with {search}:", result)
+print("Patients with Flu:", search_by_disease(patients, "Flu"))
